@@ -1,14 +1,24 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, { useContext } from 'react';
 
+import InputProvider from '../../context/Input';
+
+import { useInput } from '../../context/Input';
+
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import { Container } from './styles';
 
-const pages: React.FC = () => {
+const Home: React.FC = () => {
+  const { youtubeURL, setYoutubeURL } = useInput();
+
   return (
-    <Container>
-      <Text>TESTANDO</Text>
-    </Container>
+    <InputProvider>
+      <Container>
+        <Input />
+        <Button />
+      </Container>
+    </InputProvider>
   );
 };
 
-export default pages;
+export default Home;
