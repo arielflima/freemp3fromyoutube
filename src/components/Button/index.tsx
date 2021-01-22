@@ -2,9 +2,13 @@ import React from 'react';
 
 import { Container, Text } from './styles';
 
-const Button: React.FC = () => {
+interface IButtonProps {
+  youtubeURL: string;
+}
+
+const Button: React.FC<IButtonProps> = ({ youtubeURL }) => {
   return (
-    <Container>
+    <Container onPress={() => console.log(youtubeURL)}>
       <Text>Baixar</Text>
     </Container>
   );
