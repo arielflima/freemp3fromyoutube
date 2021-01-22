@@ -5,5 +5,5 @@ export const Container = styled.View`
   align-items: center;
   flex: 1;
 
-  background-color: #ff9d72;
+  background-color: #f9f8eb;
 `;

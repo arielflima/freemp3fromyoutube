@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { Container } from './styles';
+import { useInput } from '../../contexts/Input';
 
 const Input: React.FC = () => {
+  const { youtubeURL, setYoutubeURL } = useInput();
+
   return (
     <Container
-      value="Cole a url do video do youtube aqui"
-      onChangeText={(text) => text}
+      value={youtubeURL}
+      onChangeText={(text) => setYoutubeURL(text)}
     />
   );
 };

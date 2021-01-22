@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.TouchableHighlight`
-  background-color: #654062;
+  background-color: #7a9eb1;
   width: 250px;
   height: 80px;
   align-items: center;
@@ -14,5 +14,5 @@ export const Container = styled.TouchableHighlight`
 
 export const Text = styled.Text`
   font-size: 24px;
-  color: #ffd66b;
+  color: #ffe1b6;
 `;

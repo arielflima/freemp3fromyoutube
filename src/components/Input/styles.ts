@@ -11,7 +11,7 @@ export const Container = styled.TextInput`
 
   margin-bottom: 80px;
 
-  background-color: #f4f4f4;
+  background-color: #f9f8eb;
 
   elevation: 8;
 `;

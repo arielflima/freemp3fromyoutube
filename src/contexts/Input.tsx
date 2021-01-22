@@ -2,20 +2,22 @@ import React, { createContext, useState, useContext } from 'react';
 
 interface IContextProps {
   youtubeURL: string;
-  setYoutubeURL: React.Dispatch<React.SetStateAction<string>>;
+  setYoutubeURL: (Text: string) => void;
 }
 
 interface IInputProviderProps {
-  children: JSX.Element;
+  children: React.ReactElement;
 }
 
 const InputContext = createContext<IContextProps>({
-  youtubeURL: 'teste',
-  setYoutubeURL: (text) => text,
+  youtubeURL: '',
+  setYoutubeURL: (text) => console.warn(`you're not using context! : ${text}`),
 });
 
 export default function InputProvider({ children }: IInputProviderProps) {
-  const [youtubeURL, setYoutubeURL] = useState('test');
+  const [youtubeURL, setYoutubeURL] = useState(
+    'Paste Youtube URL to convert to MP3',
+  );
 
   return (
     <InputContext.Provider value={{ youtubeURL, setYoutubeURL }}>
