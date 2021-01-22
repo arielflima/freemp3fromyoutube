@@ -1,9 +1,21 @@
 import React, { createContext, useState, useContext } from 'react';
 
-const InputContext = createContext('teste');
+interface IContextProps {
+  youtubeURL: string;
+  setYoutubeURL: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export default function InputProvider({ children }) {
-  const [youtubeURL, setYoutubeURL] = useState('teste');
+interface IInputProviderProps {
+  children: JSX.Element;
+}
+
+const InputContext = createContext<IContextProps>({
+  youtubeURL: 'teste',
+  setYoutubeURL: (text) => text,
+});
+
+export default function InputProvider({ children }: IInputProviderProps) {
+  const [youtubeURL, setYoutubeURL] = useState('test');
 
   return (
     <InputContext.Provider value={{ youtubeURL, setYoutubeURL }}>
