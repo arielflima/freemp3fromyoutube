@@ -6,6 +6,7 @@ import ButtonProvider from '../../contexts/Button';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { Container } from './styles';
+import OutputBox from '../../components/OutputBox/index';
 
 const Home: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
         <Container>
           <Input />
           <Button />
+          <OutputBox />
         </Container>
       </InputProvider>
     </ButtonProvider>
