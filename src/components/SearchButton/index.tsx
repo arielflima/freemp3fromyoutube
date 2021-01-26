@@ -4,6 +4,8 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import { Container, Text } from './styles';
 import { useInput } from '../../contexts/Input';
 import { useButton } from '../../contexts/Button';
+import { Alert } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 interface IResponseOptionsProps {
   method: string;
@@ -12,7 +14,7 @@ interface IResponseOptionsProps {
   headers: { 'x-rapidapi-key': string; 'x-rapidapi-host': string };
 }
 
-const Button: React.FC = () => {
+const SearchButton: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { setContent } = useButton();
   const { youtubeURL } = useInput();
@@ -39,7 +41,17 @@ const Button: React.FC = () => {
 
       setContent(response.data);
 
+      const { Status, Status_Code, Warining } = response.data;
+
+      if (Status == 'Fail') {
+        Alert.alert(
+          'Error with your requisition',
+          `${Warining}, check if URL is correct and try again.`,
+        );
+      }
+
       setLoading(false);
+
       console.log(response.data);
     } catch (err) {
       console.warn(`happens something wrong with your requisition! ${err}`);
@@ -50,9 +62,9 @@ const Button: React.FC = () => {
 
   return (
     <Container onPress={handleSearchUrl}>
-      <Text>{loading ? 'Loading' : 'Download'}</Text>
+      <Icon name="search" color="white" size={32} />
     </Container>
   );
 };
 
-export default Button;
+export default SearchButton;
